@@ -12,12 +12,16 @@ This solution generates all possible subsets of a given integer array `nums` usi
 
 **Space complexity:** O(2^n * n)
 
+![image](https://github.com/user-attachments/assets/f49145e6-9d55-481d-8d5b-cfe018a0e314)
+
 ### 13. Roman to integer
 This solution converts a **Roman numeral** string into an **integer** using a dictionary for lookup and a single pass through the string. It iterates over `s`, adding values from the dictionary unless a **smaller** numeral precedes a **larger** one (e.g., "IV" or "XC"), in which case it subtracts **twice** the previous value (since it was already added).
 
 **Time complexity:** O(n)
 
 **Space complexity:** O(1)
+
+![image](https://github.com/user-attachments/assets/f139ca03-f480-41c8-bc29-018464c160b8)
 
 ### 151. Reverse words in a String
 This solution reverses the words in a given string `s` while removing extra spaces. It first **splits** the string into words using `Split(' ', StringSplitOptions.RemoveEmptyEntries)`, which removes extra spaces. Then, it **reverses** the order of the words using `.Reverse()` and finally **joins** them back into a single string with spaces using `string.Join(" ", ...)`.
@@ -26,12 +30,16 @@ This solution reverses the words in a given string `s` while removing extra spac
 
 **Space complexity:** O(n)
 
+![image](https://github.com/user-attachments/assets/92d99993-3414-49ab-ab96-1858406fdfe8)
+
 ### 206. Reverse linked list
 This solution reverses a **singly linked list** using an **iterative approach**. It maintains three pointers: `prev` (initially `null`), `current` (starting at `head`), and `next` (to track the next node). In each iteration, it reverses the `next` pointer of `current` to point to `prev`. Then, it moves `prev` forward to `current` and `current` to `next`, until reaching the end of the list. Finally, `prev` (which is now the last node) becomes the new head.
 
 **Time complexity:** O(n)
 
 **Space complexity:** O(1)
+
+![image](https://github.com/user-attachments/assets/84d180e8-7f21-483b-90dd-c4abc7483ed4)
 
 # 92. Reverse linked list II
 This solution **reverses a sublist** within a singly linked list from position `left` to `right`, while keeping the rest of the list unchanged. It extends the **iterative reversal approach** used in the *Reverse a Linked List* problem but only applies it to a specific section.
@@ -45,12 +53,16 @@ To ensure reconnection after reversing, we introduce two key pointers:
 
 **Space complexity:** O(1)
 
+![image](https://github.com/user-attachments/assets/10c49bb8-5e89-4f26-8da1-58fb2b2b15c1)
+
 ### 214. Shortest palindrome
 This solution finds the **shortest palindrome** by identifying the **longest palindromic prefix** in `s` using a **rolling hash** technique. It maintains two hash values: `prefix` (computed from left to right) and `suffix` (computed from right to left). If at any position these hashes match, it means the prefix up to that point is a palindrome, so we track the longest palindromic prefix index. After identifying this prefix, the remaining part of the string (suffix) is extracted, reversed, and **added to the beginning** of `s`, ensuring the resulting string is the shortest possible palindrome. The **mod (`1e9 + 7`)** is used to prevent integer overflow and reduce hash collisions, while the **base (`31`)** ensures a unique rolling hash.
 
 **Time complexity:** O(n)
 
 **Space complexity:** O(n)
+
+![image](https://github.com/user-attachments/assets/f747745d-615e-416b-82a1-fcb69e55a308)
 
 ### 48. Rotate image
 The algorithm rotates an `N x N` matrix **90 degrees clockwise in place** by processing it layer by layer. The outer loop iterates through each layer from the outermost to the innermost, stopping at `N/2` layers. For each layer, it identifies the `first` and `last` indices, then rotates elements in **groups of four**, performing a circular swap between the **top, right, bottom, and left** positions. The swapping is controlled by an `offset` variable, ensuring that the correct elements are moved to their respective positions without using extra space. The process continues until all layers are rotated, modifying the matrix directly.
@@ -59,6 +71,8 @@ The algorithm rotates an `N x N` matrix **90 degrees clockwise in place** by pro
 
 **Space complexity:** O(1)
 
+![image](https://github.com/user-attachments/assets/abf71842-f4f2-4224-bbbc-c14d16b5c8fe)
+
 ### 32. Longest valid parentheses
 The algorithm finds the longest valid parentheses substring using **dynamic programming (DP)**. It initializes an array `dp[]` of length `n`, where each entry stores the length of the longest valid parentheses substring ending at that index. The loop starts from index `1` since a single character cannot form a valid sequence. If the current character is a closing parenthesis `)`, two cases are considered. If the previous character is an opening parenthesis `(`, the `dp` value at the current index is updated by adding `2` to the `dp` value at `i-2`, if it exists. Otherwise, if the previous character is also `)`, but there exists a matching `(` before the valid substring, the algorithm calculates the valid length by adding `dp[i-1] + 2` and checking if there is an earlier valid sequence to append. The maximum valid length found is stored in `maxLen`, which is returned at the end.
 
@@ -66,4 +80,4 @@ The algorithm finds the longest valid parentheses substring using **dynamic prog
 
 **Space complexity:** O(n)
 
-
+![image](https://github.com/user-attachments/assets/731cd9d6-82b3-4681-bf1b-4d0d7dfb074a)
